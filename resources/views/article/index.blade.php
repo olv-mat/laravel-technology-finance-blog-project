@@ -22,7 +22,7 @@
                         <a href="#" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded-md text-center w-full md:w-auto">WhatsApp</a>
                     </div>
                 </div>
-                <a href="/" class="text-blue-700 font-bold mt-6 inline-block">Voltar</a>
+                <a href="{{ route('blog.index') }}" class="text-blue-700 font-bold mt-6 inline-block">Voltar</a>
             </div>
         </section>
         <section class="bg-white p-6 rounded-lg shadow-md mt-8">

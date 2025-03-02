@@ -6,7 +6,7 @@
                 <img src="https://placehold.co/600x400" alt="Destaque" class="w-full h-48 object-cover rounded-md mb-4">
                 <h3 class="text-xl font-bold mb-2">O Futuro da Inteligência Artificial no Mercado Financeiro</h3>
                 <p class="text-gray-700">Descubra como a IA está revolucionando os investimentos e a gestão financeira...</p>
-                <a href="/post" class="text-blue-700 font-bold mt-2 inline-block">Leia mais →</a>
+                <a href="{{ route('article.show', 1) }}" class="text-blue-700 font-bold mt-2 inline-block">Leia mais →</a>
             </div>
         </section>
         <section>

@@ -24,7 +24,7 @@
                     </div>
                 </form>
                 <div class="mt-4 text-center">
-                    <p class="text-sm text-gray-700">Ainda não tem uma conta? <a href="/register" class="text-blue-700 font-semibold hover:underline">Cadastre-se</a></p>
+                    <p class="text-sm text-gray-700">Ainda não tem uma conta? <a href="{{ route('register.index') }}" class="text-blue-700 font-semibold hover:underline">Cadastre-se</a></p>
                 </div>
                 <div class="mt-4 text-center">
                     <a href="#" class="text-blue-700 text-sm hover:underline">Esqueceu sua senha?</a>

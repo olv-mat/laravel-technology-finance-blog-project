@@ -15,7 +15,7 @@
                     <li>Inovação: Buscamos estar sempre atualizados sobre as últimas inovações tecnológicas no setor financeiro.</li>
                     <li>Educação: Valorizamos a educação financeira e acreditamos no poder do conhecimento para transformar vidas.</li>
                 </ul>
-                <a href="/" class="text-blue-700 font-bold mt-6 inline-block">Voltar</a>
+                <a href="{{ route('blog.index') }}" class="text-blue-700 font-bold mt-6 inline-block">Voltar</a>
             </div>
         </section>
     </main>

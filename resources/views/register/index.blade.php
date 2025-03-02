@@ -32,7 +32,7 @@
                     </div>
                 </form>
                 <div class="mt-4 text-center">
-                    <p class="text-sm text-gray-700">Já tem uma conta? <a href="/login" class="text-blue-700 font-semibold hover:underline">Faça login</a></p>
+                    <p class="text-sm text-gray-700">Já tem uma conta? <a href="{{ route('login.index') }}" class="text-blue-700 font-semibold hover:underline">Faça login</a></p>
                 </div>
             </div>
         </div>
