@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\{
+    Model,
+    Builder
+};
 
 class Article extends Model
 {
@@ -13,4 +16,11 @@ class Article extends Model
         "cover",
         "content",
     ];
+
+    protected static function booted()
+    {
+        self::addGlobalScope("ordered", function(Builder $queryBuilder) {
+            $queryBuilder->orderBy("created_at", "desc");
+        });
+    }
 }

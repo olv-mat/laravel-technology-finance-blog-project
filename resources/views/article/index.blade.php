@@ -2,17 +2,12 @@
     <main class="mt-20 container mx-auto px-4">
         <section class="mb-8">
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <img src="https://placehold.co/600x400" alt="Destaque" class="w-full h-96 object-cover rounded-md mb-6">
-                <h2 class="text-4xl font-bold mb-4">O Futuro da Inteligência Artificial no Mercado Financeiro</h2>
-                <p class="text-gray-700 mb-4">Publicado em 16 de Fevereiro de 2025 | Tech & Finanças</p>
-                <p class="text-gray-700 mb-4">Com o avanço constante da tecnologia, a inteligência artificial (IA) está se tornando uma das maiores forças disruptivas no setor financeiro. Desde a automação de processos até a personalização de investimentos, a IA promete transformar a forma como lidamos com o dinheiro.</p>
-                <p class="text-gray-700 mb-4">O uso de algoritmos para analisar grandes volumes de dados tem permitido aos investidores tomar decisões mais informadas e ágeis. Além disso, a IA tem se mostrado fundamental na criação de novos modelos de negócios financeiros, como os robo-advisors e a análise preditiva de mercados financeiros.</p>
-                <h3 class="text-2xl font-semibold mt-6 mb-4">Impactos da IA nos Investimentos</h3>
-                <p class="text-gray-700 mb-4">A IA tem sido amplamente utilizada para prever movimentos de mercado e identificar tendências antes que se tornem evidentes para investidores humanos. Ferramentas baseadas em IA, como os robo-advisors, são capazes de fornecer recomendações personalizadas de investimentos, considerando o perfil de risco de cada investidor e os objetivos financeiros.</p>
-                <p class="text-gray-700 mb-4">Além disso, a IA também está ajudando os investidores a gerenciar riscos. Os sistemas de IA podem detectar sinais de volatilidade no mercado e alertar os investidores sobre possíveis quedas ou quedas iminentes, permitindo uma resposta mais rápida a mudanças no cenário financeiro.</p>
-                <h3 class="text-2xl font-semibold mt-6 mb-4">O Futuro da IA no Setor Financeiro</h3>
-                <p class="text-gray-700 mb-4">À medida que a IA continua a evoluir, é esperado que ela desempenhe um papel ainda maior no setor financeiro. Desde a criação de soluções de pagamento mais inteligentes até a automação de processos bancários complexos, a IA tem o potencial de transformar toda a indústria financeira.</p>
-                <p class="text-gray-700 mb-4">Apesar das inovações, ainda existem desafios, como a necessidade de garantir a transparência nos algoritmos de IA e a preservação da privacidade dos dados dos usuários. No entanto, o futuro parece promissor, com a IA se tornando uma ferramenta indispensável para o mercado financeiro.</p>
+                <img src="{{ asset($article->cover) }}" alt="Cover" class="w-full h-96 object-cover rounded-md mb-6">
+                <h2 class="text-4xl font-bold mb-4">{{ $article->title }}</h2>
+                <p class="text-gray-700 mb-4">Publicado {{ $article->created_at->setTimezone('America/Sao_Paulo')->format('d/m/Y H:i') }} | Tech & Finanças</p>
+                <div>
+                    {!! $article->content !!}
+                </div>
                 <div class="mt-6">
                     <h3 class="text-2xl font-semibold mb-4">Compartilhe este artigo</h3>
                     <div class="flex flex-wrap gap-2 md:flex-nowrap md:space-x-4">

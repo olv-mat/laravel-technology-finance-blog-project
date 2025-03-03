@@ -24,7 +24,7 @@ class PublishRequest extends FormRequest
         return [
             "title" => ["required", "string", "min:20", "max:150"],
             "caption" => ["required", "string", "min:20", "max:150"],
-            "cover" => ["required", "image", "mimes:png,jpg,jpeg", "max:2048"],
+            "cover" => ["required", "image", "mimes:png,jpg,jpeg"],
             "content" => ["required", "string", "min:100"],
         ];
     }
