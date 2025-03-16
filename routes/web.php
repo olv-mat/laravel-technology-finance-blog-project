@@ -16,6 +16,7 @@ Route::get("/", function () {
 
 Route::resource("about", AboutController::class)->only(["index"]);
 Route::get("articles/{slug}", [ArticleController::class, "show"])->name("article.show");
+Route::post("articles/{slug}", [ArticleController::class, "store"])->name("article.store");
 Route::resource("blog", BlogController::class)->only(["index"]);
 Route::resource("login", LoginController::class)->only(["index"]);
 Route::resource("publish", PublishController::class)->only(["index", "store"]);

@@ -17,6 +17,11 @@ class Article extends Model
         "content",
     ];
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     protected static function booted()
     {
         self::addGlobalScope("ordered", function(Builder $queryBuilder) {

@@ -17,31 +17,34 @@
                         <a href="#" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded-md text-center w-full md:w-auto">WhatsApp</a>
                     </div>
                 </div>
-                <a href="{{ route('blog.index') }}" class="text-blue-700 font-bold mt-6 inline-block">Voltar</a>
             </div>
         </section>
         <section class="bg-white p-6 rounded-lg shadow-md mt-8">
             <h3 class="text-3xl font-semibold mb-4">Deixe seu comentário</h3>
-            <form action="#" method="post" class="space-y-4">
+            <form action="{{ route('article.store', $article->slug) }}" method="post" class="space-y-4">
+                @csrf
                 <div>
                     <label for="comment" class="block text-gray-700 font-medium">Seu comentário</label>
+                    <input type="hidden" name="article_id" value="{{ $article->id }}">
                     <textarea id="comment" name="comment" rows="4" class="w-full p-3 border border-gray-300 rounded-md" required></textarea>
                 </div>
                 <button type="submit" class="bg-blue-900 text-white py-2 px-4 rounded-md hover:bg-blue-700">Comentar</button>
             </form>
+            @if ($article->comments->isNotEmpty())
             <div class="mt-6">
                 <h4 class="text-2xl font-semibold mb-4">Comentários Recentes</h4>
                 <div class="space-y-4">
-                    <div class="border-b pb-4">
-                        <p class="font-semibold text-gray-800">João Silva</p>
-                        <p class="text-gray-600">Muito interessante! A IA está realmente mudando o mercado financeiro de formas que nunca imaginamos.</p>
-                    </div>
-                    <div class="border-b pb-4">
-                        <p class="font-semibold text-gray-800">Maria Oliveira</p>
-                        <p class="text-gray-600">Eu acredito que os robo-advisors vão se tornar mais acessíveis para o público em geral, tornando os investimentos mais fáceis.</p>
-                    </div>
+                    @foreach($article->comments as $comment)
+                        <div class="border-b pb-4">
+                            <p class="font-semibold text-gray-800">Anônimo</p>
+                            <p class="text-sm text-gray-500">{{ $comment->created_at->setTimezone('America/Sao_Paulo')->format('d/m/Y H:i') }}</p>
+                            <p class="text-gray-600">{{ $comment->comment }}</p>
+                        </div>
+                    @endforeach
                 </div>
+                <a href="{{ route('blog.index') }}" class="text-blue-700 font-bold mt-6 inline-block">Voltar</a>
             </div>
+            @endif
         </section>
     </main>
 </x-layout>
