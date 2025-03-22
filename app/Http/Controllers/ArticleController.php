@@ -14,7 +14,7 @@ class ArticleController extends Controller
     public function show(string $slug) {
 
         $article = Article::where("slug", $slug)->with("comments")->firstOrFail();
-        return view("article.index", [
+        return view("article", [
             "article" => $article,
         ]);
 

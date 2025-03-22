@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function blog()
     {
         $featuredArticle = Article::latest()->first();
         $articles = Article::all();
         
-        return view("blog.index", [
+        return view("blog", [
             "featuredArticle" => $featuredArticle,
             "articles" => $articles,
         ]);

@@ -21,6 +21,7 @@
         </section>
         <section class="bg-white p-6 rounded-lg shadow-md mt-8">
             <h3 class="text-3xl font-semibold mb-4">Deixe seu comentário</h3>
+            @auth
             <form action="{{ route('article.store', $article->slug) }}" method="post" class="space-y-4">
                 @csrf
                 <div>
@@ -30,6 +31,12 @@
                 </div>
                 <button type="submit" class="bg-blue-900 text-white py-2 px-4 rounded-md hover:bg-blue-700">Comentar</button>
             </form>
+            @endauth
+            @guest
+            <div class="p-4 border border-gray-300 rounded-md bg-gray-100 text-gray-600">
+                <p>Você precisa se cadastrar para comentar. <a href="{{ route('register') }}" class="text-blue-600 underline">Registre-se</a></p>
+            </div>
+            @endguest
             @if ($article->comments->isNotEmpty())
             <div class="mt-6">
                 <h4 class="text-2xl font-semibold mb-4">Comentários Recentes</h4>
@@ -42,7 +49,7 @@
                         </div>
                     @endforeach
                 </div>
-                <a href="{{ route('blog.index') }}" class="text-blue-700 font-bold mt-6 inline-block">Voltar</a>
+                <a href="{{ route('blog') }}" class="text-blue-700 font-bold mt-6 inline-block">Voltar</a>
             </div>
             @endif
         </section>

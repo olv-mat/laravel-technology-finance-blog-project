@@ -12,7 +12,7 @@
     <body class="bg-gray-100 text-gray-900 font-serif">
         <input type="checkbox" id="menu-toggle" class="hidden">
         <header class="bg-black text-white py-4 shadow-md fixed w-full top-0 z-20 flex justify-between items-center px-4">
-            <h1 class="text-2xl font-bold"><a href="{{ route('blog.index') }}">Tech & Finanças</a></h1>
+            <h1 class="text-2xl font-bold"><a href="{{ route('blog') }}">Tech & Finanças</a></h1>
             <label for="menu-toggle" class="cursor-pointer">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -23,9 +23,26 @@
             <label for="menu-toggle" class="absolute top-4 right-4 cursor-pointer">✖</label>
             <nav class="mt-16">
                 <ul class="space-y-4 text-lg">
-                    <li><a href="{{ route('login.index') }}" class="block hover:underline">Login</a></li>
-                    <li><a href="{{ route('about.index') }}" class="block hover:underline">Sobre</a></li>
-                    <li><a href="{{ route('publish.index') }}" class="block hover:underline">Publicar</a></li>
+                    @auth
+                    <li class="font-semibold text-gray-700 flex items-center justify-between">
+                        <span>Olá, {{ Auth::user()->name }}!</span>
+                        <form action="{{ route('logout') }}" method="POST" class="ml-auto">
+                            @csrf
+                            <button type="submit" class="text-red-600 hover:underline text-sm">Sair</button>
+                        </form>
+                    </li>
+                    @endauth
+                    @guest
+                    <li class="border-b border-gray-300 pb-2">
+                        <a href="{{ route('login') }}" class="block hover:underline">Login</a>
+                    </li>
+                    @endguest
+                    <li class="border-b border-gray-300 pb-2">
+                        <a href="{{ route('about') }}" class="block hover:underline">Sobre</a>
+                    </li>
+                    <li class="border-b border-gray-300 pb-2">
+                        <a href="{{ route('publish') }}" class="block hover:underline">Publicar</a>
+                    </li>
                 </ul>
             </nav>
         </aside>

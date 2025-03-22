@@ -10,9 +10,9 @@ use Illuminate\Support\Str;
 
 class PublishController extends Controller
 {
-    public function index()
+    public function publish()
     {
-        return view("publish.index");
+        return view("publish");
     }
 
     public function store(PublishRequest $request)
@@ -23,6 +23,6 @@ class PublishController extends Controller
         $requestArray["cover"] = $fullPath;
         $requestArray["slug"] = Str::of($request->title)->slug('-');
         $article = Article::create($requestArray);
-        return to_route("blog.index");
+        return to_route("blog");
     }
 }
