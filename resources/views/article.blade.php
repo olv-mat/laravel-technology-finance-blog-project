@@ -27,6 +27,7 @@
                 <div>
                     <label for="comment" class="block text-gray-700 font-medium">Seu comentário</label>
                     <input type="hidden" name="article_id" value="{{ $article->id }}">
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <textarea id="comment" name="comment" rows="4" class="w-full p-3 border border-gray-300 rounded-md" required></textarea>
                 </div>
                 <button type="submit" class="bg-blue-900 text-white py-2 px-4 rounded-md hover:bg-blue-700">Comentar</button>
@@ -43,7 +44,7 @@
                 <div class="space-y-4">
                     @foreach($article->comments as $comment)
                         <div class="border-b pb-4">
-                            <p class="font-semibold text-gray-800">Anônimo</p>
+                            <p class="font-semibold text-gray-800">{{ $comment->user->name }}</p>
                             <p class="text-sm text-gray-500">{{ $comment->created_at->setTimezone('America/Sao_Paulo')->format('d/m/Y H:i') }}</p>
                             <p class="text-gray-600">{{ $comment->comment }}</p>
                         </div>

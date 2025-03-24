@@ -4,8 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tech & Finanças</title>
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+        <style>
+            #menu-toggle:checked ~ #sidebar {
+                transform: translateX(0);
+            }
+        </style>
         <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
         <script src="https://cdn.tailwindcss.com"></script>
     </head>

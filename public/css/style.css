@@ -1,3 +1,0 @@
-#menu-toggle:checked ~ #sidebar {
-    transform: translateX(0);
-}
